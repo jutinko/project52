@@ -23,7 +23,8 @@ people or whatever.
 - Anything that can make me learn and I can keep and record of. Anything.
 
 # The real list
-1. (02.08.2016): Standing up my personal blog
+1. (02.08.2016): Standing up my personal [blog](https://jutkko.github.com)
+2. (09.08.2016): What the sort?
 
 # Liking this idea?
 First of all you need to thank kkdai for setting an awesome example. Secondly
