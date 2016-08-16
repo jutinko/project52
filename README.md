@@ -24,7 +24,8 @@ people or whatever.
 
 # The real list
 1. (02.08.2016): Standing up my personal [blog](https://jutkko.github.com)
-2. (09.08.2016): What the sort?
+1. (09.08.2016): What the [sort](https://github.com/jutkko/quicksort)?
+1. (16.08.2016): Simple random number generator
 
 # Liking this idea?
 First of all you need to thank kkdai for setting an awesome example. Secondly
