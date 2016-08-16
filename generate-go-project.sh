@@ -46,7 +46,8 @@ This is a project from my [Project52](https://github.com/jutkko/project52)." > "
 PROJECT_NAME=$1
 if [ -z "${PROJECT_NAME}" ]
   then
-  PROJECT_NAME="default"
+  echo "usage: ${0} your-project-name"
+  exit 1
 fi
 
 PROJECT_DIR="$HOME/workspace/${PROJECT_NAME}"
