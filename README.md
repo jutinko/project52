@@ -25,7 +25,9 @@ people or whatever.
 # The real list
 1. (02.08.2016): Standing up my personal [blog](https://jutkko.github.com)
 1. (09.08.2016): What the [sort](https://github.com/jutkko/quicksort)?
-1. (16.08.2016): Simple random number generator
+1. (16.08.2016): Simple random number [generator](https://github.com/jutkko/simple-rng)
+1. (23.08.2016): [Cycling](https://github.com/jutkko/icpc-cycling)
+1. (30.08.2016): More Vim notes
 
 # Liking this idea?
 First of all you need to thank kkdai for setting an awesome example. Secondly
