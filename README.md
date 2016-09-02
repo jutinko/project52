@@ -28,6 +28,7 @@ people or whatever.
 1. (16.08.2016): Simple random number [generator](https://github.com/jutkko/simple-rng)
 1. (23.08.2016): [Cycling](https://github.com/jutkko/icpc-cycling)
 1. (30.08.2016): More Vim notes
+1. (06.09.2016): Home dir
 
 # Liking this idea?
 First of all you need to thank kkdai for setting an awesome example. Secondly
