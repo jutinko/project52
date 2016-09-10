@@ -43,21 +43,46 @@ create_readme_skeleton() {
 This is a project from my [Project52](https://github.com/jutkko/project52)." > "${project_dir}/README.md"
 }
 
-PROJECT_NAME=$1
-if [ -z "${PROJECT_NAME}" ]
+init_dirs() {
+  project_dir=$1
+  (
+    cd "${project_dir}"
+    mkdir src bin
+    echo export GOPATH='$PWD'/src > .envrc
+    echo export PATH='$PATH':'$GOPATH'/bin >> .envrc
+  )
+}
+
+main() {
+  PROJECT_NAME=$1
+  if [ -z "${PROJECT_NAME}" ]
   then
-  echo "usage: ${0} your-project-name"
-  exit 1
-fi
+    echo "usage: ${0} your-project-name"
+    exit 1
+  fi
 
-PROJECT_DIR="$HOME/workspace/${PROJECT_NAME}"
-mkdir "${PROJECT_DIR}"
+  PROJECT_DIR="${HOME}/workspace/${PROJECT_NAME}/"
+  PROJECT_GITHUB_DIR="${HOME}/workspace/${PROJECT_NAME}/src/github.com/jutkko/${PROJECT_NAME}"
 
-pushd "${PROJECT_DIR}" 1>/dev/null
-git init 1>/dev/null
+  if [ -d "${PROJECT_DIR}" ]
+  then
+    echo "project already exists in ${PROJECT_DIR}"
+    exit 1
+  fi
 
-create_license "${PROJECT_DIR}"
-create_readme_skeleton "${PROJECT_NAME}" "${PROJECT_DIR}"
-popd 1>/dev/null
+  mkdir -p "${PROJECT_DIR}"
+  init_dirs "${PROJECT_DIR}"
 
-echo "Now you can add your git remote to ${PROJECT_DIR} dir"
+  mkdir -p "${PROJECT_GITHUB_DIR}"
+
+  pushd "${PROJECT_GITHUB_DIR}" 1>/dev/null
+  git init 1>/dev/null
+
+  create_license "${PROJECT_GITHUB_DIR}"
+  create_readme_skeleton "${PROJECT_NAME}" "${PROJECT_GITHUB_DIR}"
+  popd 1>/dev/null
+
+  echo "Now you can add your git remote to ${PROJECT_GITHUB_DIR} dir"
+}
+
+main "${@}"
