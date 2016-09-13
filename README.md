@@ -28,7 +28,8 @@ people or whatever.
 1. (16.08.2016): Simple random number [generator](https://github.com/jutkko/simple-rng)
 1. (23.08.2016): [Cycling](https://github.com/jutkko/icpc-cycling)
 1. (30.08.2016): More [Vim notes](https://github.com/jutkko/vim-notes)
-1. (06.09.2016): Mindmap to markdown
+1. (06.09.2016): [Mindown](https://github.com/jutkko/mindown): Mindmap to markdown
+1. (13.09.2016): Tools week
 
 # Liking this idea?
 First of all you need to thank kkdai for setting an awesome example. Secondly
