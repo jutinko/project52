@@ -7,7 +7,7 @@ time. But things happen and I always find excuses to not **do** it.
 
 I accidentally came across [kkdai](http://www.evanlin.com/)'s github
 [repository](https://github.com/kkdai/project52), and felt heavily inspired.
-Just to note that kkdai was then inspired by another
+Just a side note that kkdai was then inspired by another
 [guy](https://github.com/jeffersonlam).
 
 # What can the projects be?
