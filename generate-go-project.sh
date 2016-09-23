@@ -23,6 +23,8 @@ main() {
   if [ "${GOLANG}" = true ]
   then
     PROJECT_DIR=$(init_dirs_golang "${PROJECT_DIR}")
+  else
+    PROJECT_DIR=$(init_dirs "${PROJECT_DIR}")
   fi
   echo "${PROJECT_DIR}"
 
@@ -71,6 +73,16 @@ create_readme_skeleton() {
 
 # Project52
 This is a project from my [Project52](https://github.com/jutkko/project52)." > "${project_dir}/README.md"
+}
+
+init_dirs() {
+  project_dir=$1
+  (
+    cd "${project_dir}"
+
+    git init 1>/dev/null
+    echo "${project_dir}"
+  )
 }
 
 init_dirs_golang() {
