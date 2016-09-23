@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ex
+set -e
 # Run this script within .../project52
 
 main() {
