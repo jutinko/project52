@@ -1,6 +1,36 @@
 #!/bin/bash
-set -e
+set -ex
 # Run this script within .../project52
+
+main() {
+  PROJECT_NAME=$1
+  if [ -z "${PROJECT_NAME}" ]
+  then
+    echo "usage: ${0} your-project-name"
+    exit 1
+  fi
+
+  PROJECT_DIR="${HOME}/workspace/${PROJECT_NAME}"
+
+  if [ -d "${PROJECT_DIR}" ]
+  then
+    echo "project already exists in ${PROJECT_DIR}"
+    exit 1
+  fi
+
+  mkdir -p "${PROJECT_DIR}"
+  GOLANG=${2:-true}
+  if [ "${GOLANG}" = true ]
+  then
+    PROJECT_DIR=$(init_dirs_golang "${PROJECT_DIR}")
+  fi
+  echo "${PROJECT_DIR}"
+
+  create_license "${PROJECT_DIR}"
+  create_readme_skeleton "${PROJECT_NAME}" "${PROJECT_DIR}"
+
+  echo "Now you can add your git remote to ${PROJECT_DIR} directory"
+}
 
 create_license() {
   year=$(date "+%Y")
@@ -43,46 +73,21 @@ create_readme_skeleton() {
 This is a project from my [Project52](https://github.com/jutkko/project52)." > "${project_dir}/README.md"
 }
 
-init_dirs() {
+init_dirs_golang() {
   project_dir=$1
   (
     cd "${project_dir}"
     mkdir src bin
     echo export GOPATH='$PWD'/src > .envrc
     echo export PATH='$PATH':'$GOPATH'/bin >> .envrc
+
+    PROJECT_GITHUB_DIR="${project_dir}/src/github.com/jutkko/${project_name}"
+    mkdir -p "${PROJECT_GITHUB_DIR}"
+
+    cd "${PROJECT_GITHUB_DIR}"
+    git init 1>/dev/null
+    echo "${PROJECT_GITHUB_DIR}"
   )
-}
-
-main() {
-  PROJECT_NAME=$1
-  if [ -z "${PROJECT_NAME}" ]
-  then
-    echo "usage: ${0} your-project-name"
-    exit 1
-  fi
-
-  PROJECT_DIR="${HOME}/workspace/${PROJECT_NAME}/"
-  PROJECT_GITHUB_DIR="${HOME}/workspace/${PROJECT_NAME}/src/github.com/jutkko/${PROJECT_NAME}"
-
-  if [ -d "${PROJECT_DIR}" ]
-  then
-    echo "project already exists in ${PROJECT_DIR}"
-    exit 1
-  fi
-
-  mkdir -p "${PROJECT_DIR}"
-  init_dirs "${PROJECT_DIR}"
-
-  mkdir -p "${PROJECT_GITHUB_DIR}"
-
-  pushd "${PROJECT_GITHUB_DIR}" 1>/dev/null
-  git init 1>/dev/null
-
-  create_license "${PROJECT_GITHUB_DIR}"
-  create_readme_skeleton "${PROJECT_NAME}" "${PROJECT_GITHUB_DIR}"
-  popd 1>/dev/null
-
-  echo "Now you can add your git remote to ${PROJECT_GITHUB_DIR} dir"
 }
 
 main "${@}"
