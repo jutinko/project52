@@ -33,6 +33,7 @@ people or whatever.
 1. (13.09.2016): [Tools](https://github.com/jutkko/tools-notes) week
 1. (20.09.2016): Simple Concourse pipeline
 1. (29.09.2016): More [Concourse](https://github.com/jutkko/concourse-102)
+1. (04.10.2016): More [mindown](https://github.com/jutkko/mindown)
 
 # Liking this idea?
 First of all you need to thank kkdai for setting an awesome example. Secondly
